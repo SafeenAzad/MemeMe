@@ -9,12 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavigationControllerDelegate, UITextFieldDelegate{
-        
+    
+    
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: UITextField!
+    @IBOutlet weak var toolBar: UIToolbar!
         
         @IBOutlet weak var imagePickerView: UIImageView!
         @IBOutlet weak var cameraButton: UIBarButtonItem!
+    
+    
     
     let memeTextAttributes:[String:Any] = [
         NSStrokeColorAttributeName: UIColor.black,
@@ -114,9 +119,45 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
     }
     
     
+    func generateMemedImage() -> UIImage {
+        
+        
+        self.navigationController?.navigationBar.isHidden = true
+        self.toolBar.isHidden = true
+        
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        
+        self.navigationController?.navigationBar.isHidden = false
+        self.toolBar.isHidden
+            = false
+        
+        return memedImage
+    }
     
+    struct Meme {
+        var textField1: String
+        var textField2: String
+        var image: UIImage!
+        var memedImage: UIImage!
+    }
     
+    var memes = [Meme]()
     
+    func save() {
+        var memedImage = generateMemedImage()
+        let savedMeme = Meme (textField1: textField1.text!, textField2: textField2.text!, image: imagePickerView.image, memedImage: memedImage)
+        
+        
+        
+    }
+ 
+   
         override func viewWillAppear(_ animated: Bool) {
             
             super.viewWillAppear(animated)
