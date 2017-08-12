@@ -173,13 +173,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
             unsubscribeFromKeyboardNotifications()
         }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
+    func textFieldDidBeginEditing(texfieldtop: UITextField!,textfieldbottom : UITextField!) {
+        texfieldtop.placeholder = nil
+        textfieldbottom.placeholder = nil
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+       
         textField.resignFirstResponder()
-        
         return true;
     }
     
