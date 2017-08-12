@@ -39,6 +39,7 @@
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XW2-xB-nKI">
                                 <rect key="frame" x="16" y="55" width="343" height="557"/>
+                                <color key="backgroundColor" red="0.89684504270553589" green="0.93278044462203979" blue="0.97438651323318481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="6Mh-XD-WpE">
                                 <rect key="frame" x="148" y="77" width="80" height="48"/>
@@ -54,11 +55,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IXm-zR-iEx">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hay-H6-nWv">
                                 <rect key="frame" x="1" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="fEd-oj-Pkr"/>
+                                    <navigationItem title="Title" id="M9J-Vy-Ufn">
+                                        <barButtonItem key="leftBarButtonItem" title="Share" id="B0g-Zc-jsZ">
+                                            <connections>
+                                                <action selector="shareButton:" destination="BYZ-38-t0r" id="bXM-1A-f1A"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -80,7 +87,7 @@
                     <connections>
                         <outlet property="cameraButton" destination="xtz-pd-0do" id="V5k-0P-OI0"/>
                         <outlet property="imagePickerView" destination="XW2-xB-nKI" id="Tqk-mB-95e"/>
-                        <outlet property="navigationBar" destination="IXm-zR-iEx" id="9XQ-c7-tUa"/>
+                        <outlet property="navBar" destination="hay-H6-nWv" id="BEy-nF-Eh2"/>
                         <outlet property="textField1" destination="6Mh-XD-WpE" id="SZ1-Dz-pqF"/>
                         <outlet property="textField2" destination="YGc-eM-rXf" id="fdQ-LC-0be"/>
                         <outlet property="toolBar" destination="8mP-KI-wFL" id="Ky6-Kr-8A2"/>

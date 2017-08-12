@@ -11,13 +11,13 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavigationControllerDelegate, UITextFieldDelegate{
     
     
-    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var toolBar: UIToolbar!
         
-        @IBOutlet weak var imagePickerView: UIImageView!
-        @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     
     
@@ -78,11 +78,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             picker.dismiss(animated: true, completion: nil)
     }
-    
-    
-    
-    
-    
+
     
     
     
@@ -122,7 +118,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
     func generateMemedImage() -> UIImage {
         
         
-        self.navigationController?.navigationBar.isHidden = true
+        self.navBar.isHidden = true
         self.toolBar.isHidden = true
         
         
@@ -133,9 +129,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
         UIGraphicsEndImageContext()
         
         
-        self.navigationController?.navigationBar.isHidden = false
-        self.toolBar.isHidden
-            = false
+        self.navBar.isHidden = false
+        self.toolBar.isHidden = false
         
         return memedImage
     }
@@ -150,13 +145,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
     var memes = [Meme]()
     
     func save() {
-        var memedImage = generateMemedImage()
-        let savedMeme = Meme (textField1: textField1.text!, textField2: textField2.text!, image: imagePickerView.image, memedImage: memedImage)
-        
-        
+        let memedImage = generateMemedImage()
+        _ = Meme (textField1: textField1.text!, textField2: textField2.text!, image: imagePickerView.image, memedImage: memedImage)
+       
+    }
+    
+    @IBAction func shareButton(_ sender: Any) {
+      
+        let share = generateMemedImage()
+        let controller = UIActivityViewController(activityItems: [share], applicationActivities: nil)
+        self.present(controller, animated: true, completion: nil)
         
     }
- 
+    
+    
    
         override func viewWillAppear(_ animated: Bool) {
             
