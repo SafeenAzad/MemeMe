@@ -38,7 +38,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XW2-xB-nKI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XW2-xB-nKI">
                                 <rect key="frame" x="16" y="55" width="343" height="557"/>
                                 <color key="backgroundColor" red="0.89684504270553589" green="0.93278044462203979" blue="0.97438651323318481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
