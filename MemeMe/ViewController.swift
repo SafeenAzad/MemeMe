@@ -15,7 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var toolBar: UIToolbar!
-        
+    
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     
@@ -30,60 +30,60 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
         
         NSStrokeWidthAttributeName: -0.3]
     
-   
-    
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            // Do any additional setup after loading the view, typically from a nib.
-            
-            
-            textField1.defaultTextAttributes = memeTextAttributes
-            textField2.defaultTextAttributes = memeTextAttributes
-            
-            
-            textField1.textAlignment = NSTextAlignment.center
-            textField2.textAlignment = NSTextAlignment.center
-          
-            textField1.delegate = self
-            textField2.delegate = self
-            
-        }
     
     
-    
-    
-        @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-            
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = .photoLibrary
-            present(imagePicker, animated: true, completion: nil)
-            
-            
-        }
-        @IBAction func pickAnImageFromCamera(_ sender: Any) {
-            
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = .camera
-            present(imagePicker, animated: true, completion: nil)
-            
-            
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
         
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-            
-            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-            imagePickerView.image = image
-            
-            
-            self.dismiss(animated: true, completion: nil)
-        }
-  
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            picker.dismiss(animated: true, completion: nil)
+        
+        textField1.defaultTextAttributes = memeTextAttributes
+        textField2.defaultTextAttributes = memeTextAttributes
+        
+        
+        textField1.textAlignment = NSTextAlignment.center
+        textField2.textAlignment = NSTextAlignment.center
+        
+        textField1.delegate = self
+        textField2.delegate = self
+        
     }
-
+    
+    
+    
+    
+    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+        
+        
+    }
+    @IBAction func pickAnImageFromCamera(_ sender: Any) {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+        
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imagePickerView.image = image
+        
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     
     
     
@@ -108,9 +108,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
     }
     func keyboardWillDissapear(_ notification:Notification) {
         
-        view.frame.origin.y = 0 
+        view.frame.origin.y = 0
     }
-
+    
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
         
@@ -152,31 +152,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
     func save() {
         let memedImage = generateMemedImage()
         _ = Meme (textField1: textField1.text!, textField2: textField2.text!, image: imagePickerView.image, memedImage: memedImage)
-       
-    }
-    
-    @IBAction func shareButton(_ sender: Any) {
-      
-        let share = generateMemedImage()
-        let controller = UIActivityViewController(activityItems: [share], applicationActivities: nil)
-        self.present(controller, animated: true, completion: nil)
         
     }
     
+    @IBAction func shareButton(_ sender: Any) {
+        
+        let share = generateMemedImage()
+        let controller = UIActivityViewController(activityItems: [share], applicationActivities: nil)
+        
+            controller.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+        
+        self.present(controller, animated: true, completion: nil)
+    }
     
-   
-        override func viewWillAppear(_ animated: Bool) {
-            
-            super.viewWillAppear(animated)
-            cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-            subscribeToKeyboardNotifications()
-        }
     
-        override func viewWillDisappear(_ animated: Bool) {
-            
-            super.viewWillDisappear(animated)
-            unsubscribeFromKeyboardNotifications()
-        }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+    }
     
     func textFieldDidBeginEditing(textfieldtop: UITextField!,textfieldbottom : UITextField!) {
         textfieldtop.placeholder = nil
@@ -184,7 +186,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-       
+        
         textField.resignFirstResponder()
         return true;
     }
