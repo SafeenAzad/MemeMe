@@ -25,12 +25,13 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mP-KI-wFL">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Pick" id="Zeg-af-gmD">
+                                    <barButtonItem systemItem="add" id="Zeg-af-gmD">
                                         <connections>
                                             <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="Kh1-AP-8o9"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Camera" width="246" id="xtz-pd-0do">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6N5-fz-hRB"/>
+                                    <barButtonItem systemItem="camera" id="xtz-pd-0do">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="MnM-8X-sIG"/>
                                         </connections>
@@ -60,7 +61,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="M9J-Vy-Ufn">
-                                        <barButtonItem key="leftBarButtonItem" title="Share" id="B0g-Zc-jsZ">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="B0g-Zc-jsZ">
                                             <connections>
                                                 <action selector="shareButton:" destination="BYZ-38-t0r" id="bXM-1A-f1A"/>
                                             </connections>

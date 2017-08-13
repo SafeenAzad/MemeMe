@@ -301,6 +301,7 @@
 				EDE471EB1F3B2D7E001074B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
