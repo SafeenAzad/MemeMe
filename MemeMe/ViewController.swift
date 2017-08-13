@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
         
         NSStrokeWidthAttributeName: -0.3]
     
-    
+   
     
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -39,6 +39,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
             
             textField1.defaultTextAttributes = memeTextAttributes
             textField2.defaultTextAttributes = memeTextAttributes
+            
+            
+            textField1.textAlignment = NSTextAlignment.center
+            textField2.textAlignment = NSTextAlignment.center
+          
             textField1.delegate = self
             textField2.delegate = self
             
@@ -173,8 +178,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
             unsubscribeFromKeyboardNotifications()
         }
     
-    func textFieldDidBeginEditing(texfieldtop: UITextField!,textfieldbottom : UITextField!) {
-        texfieldtop.placeholder = nil
+    func textFieldDidBeginEditing(textfieldtop: UITextField!,textfieldbottom : UITextField!) {
+        textfieldtop.placeholder = nil
         textfieldbottom.placeholder = nil
     }
     
