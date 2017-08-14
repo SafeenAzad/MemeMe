@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavigationControllerDelegate, UITextFieldDelegate{
     
     
@@ -140,18 +139,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
         return memedImage
     }
     
-    struct Meme {
-        var textField1: String
-        var textField2: String
-        var image: UIImage!
-        var memedImage: UIImage!
-    }
-    
-    var memes = [Meme]()
     
     func save() {
         let memedImage = generateMemedImage()
-        _ = Meme (textField1: textField1.text!, textField2: textField2.text!, image: imagePickerView.image, memedImage: memedImage)
+        let meme = Meme(textField1: textField1.text!, textField2: textField2.text!, image: imagePickerView.image, memedImage: memedImage)
+        
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
         
     }
     
@@ -160,11 +155,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
         let share = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [share], applicationActivities: nil)
         
-            controller.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
-        
+        controller.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+        controller.completionWithItemsHandler = {(viewType, completed, any, error) in
+            if completed {
+                self.save()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
         self.present(controller, animated: true, completion: nil)
     }
     
+    @IBAction func cancelButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
