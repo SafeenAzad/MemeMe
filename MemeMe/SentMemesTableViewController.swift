@@ -46,7 +46,7 @@ class SentMemesTableViewController: UITableViewController {
        
         cell.textLabel?.text = which.textField1
         
-        cell.imageView?.image = imageWithImage(image: which.memedImage!, scaledToSize: CGSize(width: 150, height: 150))
+        cell.imageView?.image = imageWithImage(image: which.memedImage!, scaledToSize: CGSize(width: 165, height: 165))
 
         cell.detailTextLabel?.text = which.textField2
         

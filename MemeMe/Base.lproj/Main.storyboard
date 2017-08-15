@@ -35,7 +35,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="36h-jr-z9R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94001287221908569" green="0.98067957162857056" blue="0.97664469480514526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentMemesTableViewController" rowHeight="150" id="szc-PO-nwe">
                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
@@ -63,11 +63,11 @@
             </objects>
             <point key="canvasLocation" x="-359.19999999999999" y="729.98500749625191"/>
         </scene>
-        <!--Item-->
+        <!--Table-->
         <scene sceneID="QH4-RI-72G">
             <objects>
                 <navigationController id="b7D-e6-yyU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="dc4-5N-Wu5"/>
+                    <tabBarItem key="tabBarItem" title="Table" id="dc4-5N-Wu5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KiV-oe-Fm3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -80,11 +80,11 @@
             </objects>
             <point key="canvasLocation" x="-1298" y="730"/>
         </scene>
-        <!--Item-->
+        <!--Collection-->
         <scene sceneID="EKh-X7-04r">
             <objects>
                 <navigationController id="l98-dy-SaL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wOH-mz-dDO"/>
+                    <tabBarItem key="tabBarItem" title="Collection" id="wOH-mz-dDO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UIG-Yx-GOa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -101,24 +101,40 @@
         <scene sceneID="BIl-P6-dri">
             <objects>
                 <collectionViewController id="eHe-lQ-yTj" customClass="SentMemesCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ysd-QM-OOk">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="ysd-QM-OOk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94001287221908569" green="0.98067957162857056" blue="0.97664469480514526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Tk0-ju-pgl">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="165" height="165"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nm4-0P-HaV" customClass="SentMemesCollectionViewCell" customModule="MemeMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="nm4-0P-HaV" customClass="SentMemesCollectionViewCell" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FR4-mG-asn">
+                                            <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="FR4-mG-asn" firstAttribute="leading" secondItem="nm4-0P-HaV" secondAttribute="leading" id="CU4-pt-rlV"/>
+                                    <constraint firstItem="FR4-mG-asn" firstAttribute="centerY" secondItem="nm4-0P-HaV" secondAttribute="centerY" id="Cmg-dR-EgC"/>
+                                    <constraint firstItem="FR4-mG-asn" firstAttribute="centerX" secondItem="nm4-0P-HaV" secondAttribute="centerX" id="K2l-j9-7GX"/>
+                                    <constraint firstAttribute="trailing" secondItem="FR4-mG-asn" secondAttribute="trailing" id="Vs4-yz-zxE"/>
+                                    <constraint firstItem="FR4-mG-asn" firstAttribute="top" secondItem="nm4-0P-HaV" secondAttribute="top" id="bZl-jE-mto"/>
+                                    <constraint firstAttribute="bottom" secondItem="FR4-mG-asn" secondAttribute="bottom" id="kRQ-un-cKk"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="FR4-mG-asn" id="WfM-ig-zen"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -133,10 +149,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="flowLayout" destination="Tk0-ju-pgl" id="pwQ-v2-VtD"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7N-zl-HO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-359" y="-72"/>
+            <point key="canvasLocation" x="-359.19999999999999" y="-72.413793103448285"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
