@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-2046" y="224"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Saved Memes-->
         <scene sceneID="C64-vo-Thi">
             <objects>
                 <tableViewController id="dyl-v4-Hq0" customClass="SentMemesTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,7 +51,7 @@
                             <outlet property="delegate" destination="dyl-v4-Hq0" id="k7b-SI-I4g"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="W3k-FI-b7P">
+                    <navigationItem key="navigationItem" title="Saved Memes" id="W3k-FI-b7P">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ie6-gm-2aX">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="xoS-VG-agr"/>
@@ -67,7 +67,7 @@
         <scene sceneID="QH4-RI-72G">
             <objects>
                 <navigationController id="b7D-e6-yyU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" id="dc4-5N-Wu5"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="Table" id="dc4-5N-Wu5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KiV-oe-Fm3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -84,7 +84,7 @@
         <scene sceneID="EKh-X7-04r">
             <objects>
                 <navigationController id="l98-dy-SaL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" id="wOH-mz-dDO"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="Collection" id="wOH-mz-dDO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UIG-Yx-GOa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -97,7 +97,7 @@
             </objects>
             <point key="canvasLocation" x="-1298" y="-71"/>
         </scene>
-        <!--Sent Memes Collection View Controller-->
+        <!--Saved Memes-->
         <scene sceneID="BIl-P6-dri">
             <objects>
                 <collectionViewController id="eHe-lQ-yTj" customClass="SentMemesCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -142,7 +142,7 @@
                             <outlet property="delegate" destination="eHe-lQ-yTj" id="8QB-ME-eqw"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="MfP-uC-9Xe">
+                    <navigationItem key="navigationItem" title="Saved Memes" id="MfP-uC-9Xe">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7xG-xy-00E">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="FNd-6L-Iw5"/>
@@ -156,6 +156,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7N-zl-HO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-359.19999999999999" y="-72.413793103448285"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="OEe-P7-beK">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="T5Q-5j-8Sr" customClass="DetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cer-vJ-w9q"/>
+                        <viewControllerLayoutGuide type="bottom" id="TOs-tx-WSr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VnA-ix-7o7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NZN-lW-E0L">
+                                <rect key="frame" x="0.0" y="28" width="375" height="611"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NZN-lW-E0L" firstAttribute="centerY" secondItem="VnA-ix-7o7" secondAttribute="centerY" id="28I-mi-69g"/>
+                            <constraint firstItem="TOs-tx-WSr" firstAttribute="top" secondItem="NZN-lW-E0L" secondAttribute="bottom" constant="28" id="4qC-IY-ka4"/>
+                            <constraint firstItem="NZN-lW-E0L" firstAttribute="top" secondItem="cer-vJ-w9q" secondAttribute="bottom" constant="8" id="V09-bv-hLx"/>
+                            <constraint firstItem="NZN-lW-E0L" firstAttribute="centerX" secondItem="VnA-ix-7o7" secondAttribute="centerX" id="b8u-GX-nhh"/>
+                            <constraint firstItem="NZN-lW-E0L" firstAttribute="leading" secondItem="VnA-ix-7o7" secondAttribute="leading" id="c2w-bs-3Rv"/>
+                            <constraint firstAttribute="trailing" secondItem="NZN-lW-E0L" secondAttribute="trailing" id="uJB-9J-T8D"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="NZN-lW-E0L" id="uc6-2K-ItO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2dF-Py-hX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1853.5999999999999" y="273.91304347826087"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -187,7 +221,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7WT-Pt-fSo"/>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XW2-xB-nKI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XW2-xB-nKI">
                                 <rect key="frame" x="16" y="55" width="343" height="557"/>
                                 <color key="backgroundColor" red="0.89684504270553589" green="0.93278044462203979" blue="0.97438651323318481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
@@ -253,7 +287,11 @@
             <point key="canvasLocation" x="901.60000000000002" y="273.91304347826087"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Collection" width="30" height="30"/>
+        <image name="Table" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xoS-VG-agr"/>
+        <segue reference="FNd-6L-Iw5"/>
     </inferredMetricsTieBreakers>
 </document>

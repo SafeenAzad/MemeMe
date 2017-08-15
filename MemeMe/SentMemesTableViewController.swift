@@ -68,6 +68,12 @@ class SentMemesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let controller = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        controller.memDetail = self.mem[(indexPath as NSIndexPath).row]
+        
+        self.navigationController?.pushViewController(controller, animated: true)
+        
     }
     
     
