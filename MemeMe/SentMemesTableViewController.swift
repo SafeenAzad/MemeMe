@@ -10,8 +10,12 @@ import UIKit
 
 class SentMemesTableViewController: UITableViewController {
 
-    var mem = [Meme]()
-  //var all = memed.allMemed
+    var mem = [Meme](){
+        didSet{
+            self.tableView.reloadData()
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,24 +32,44 @@ class SentMemesTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.mem.count
+        return mem.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SentMemesTableViewController", for: indexPath)
+        let which = mem[(indexPath as NSIndexPath).row]
        
+        cell.textLabel?.text = which.textField1
+        
+        cell.imageView?.image = imageWithImage(image: which.memedImage!, scaledToSize: CGSize(width: 150, height: 150))
+
+        cell.detailTextLabel?.text = which.textField2
+        
         
         // Configure the cell...
-
-        
         return cell
     }
+    
+    func imageWithImage(image:UIImage,scaledToSize newSize:CGSize)->UIImage{
+        
+        UIGraphicsBeginImageContext( newSize )
+        image.draw(in: CGRect(x: 0,y: 0,width: newSize.width,height: newSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!.withRenderingMode(.alwaysOriginal)
+    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
     
 
     /*
