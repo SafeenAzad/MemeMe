@@ -18,7 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     
-    
+    var isBottom = false
     
     let memeTextAttributes:[String:Any] = [
         NSStrokeColorAttributeName: UIColor.black,
@@ -102,14 +102,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
     
     
     func keyboardWillShow(_ notification:Notification){
-       
-        view.frame.origin.y = 0 - getKeyboardHeight(notification)
-        
-        
+        if isBottom {
+            view.frame.origin.y = 0 - getKeyboardHeight(notification)
+            
+        }
     }
     func keyboardWillDissapear(_ notification:Notification) {
-        
-        view.frame.origin.y = 0
+        if isBottom {
+            view.frame.origin.y = 0
+        }
     }
     
     
@@ -185,9 +186,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate , UINavi
         unsubscribeFromKeyboardNotifications()
     }
     
-    func textFieldDidBeginEditing(textfieldtop: UITextField!,textfieldbottom : UITextField!) {
-        textfieldtop.placeholder = nil
-        textfieldbottom.placeholder = nil
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text == "TOP" || textField.text == "BOTTOM" {
+            textField.text = ""
+        }
+        
+        if textField.tag == 0 {
+            isBottom = false
+        } else {
+            isBottom = true
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
